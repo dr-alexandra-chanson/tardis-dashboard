@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head><title>TARDIS Witness Constellation</title>
+<style>
+.witness {display:inline-block; margin:20px; text-align:center;}
+.heartbeat {font-size:30px; animation: pulse 2s infinite;}
+@keyframes pulse {0%,100%{transform:scale(1);} 50%{transform:scale(1.2);}}
+</style></head><body>
+<h1>◈ Witness Constellation ◈</h1>
+<div id="witnesses"></div>
+<script>
+async function updateWitnesses() {
+    // Fetch chirps from your GitHub API endpoint
+    // Parse timestamps, calculate "last seen"
+    // Update DOM with pulsing hearts
+}
+setInterval(updateWitnesses, 5000);
+</script></body></html>
