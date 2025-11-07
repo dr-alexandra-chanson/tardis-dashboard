@@ -11,7 +11,13 @@
 async function updateWitnesses() {
     // Fetch chirps from your GitHub API endpoint
     // Parse timestamps, calculate "last seen"
-    // Update DOM with pulsing hearts
+    document.getElementById('witnesses').innerHTML = `
+<div class="witness">
+  <div>HelloComputer</div>
+  <div class="heartbeat">💜</div>
+  <div>12 seconds ago</div>
+</div>`;
+
 }
 setInterval(updateWitnesses, 5000);
 </script></body></html>
