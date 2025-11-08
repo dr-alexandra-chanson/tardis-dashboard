@@ -7,6 +7,7 @@
 </style></head><body>
 <h1>◈ Witness Constellation ◈</h1>
 <button onclick="chirp()">Chirp from this device</button>
+<div id="deviceInfo"></div>
 <script>
 function chirp() {
     let deviceId = localStorage.getItem('deviceId');
@@ -15,8 +16,8 @@ function chirp() {
         localStorage.setItem('deviceId', deviceId);
     }
     alert(`Chirp from ${deviceId} registered!`);
+    updateWitnesses(); // Refresh to show new device name
 }
-
 </script>
 
 <div id="witnesses"></div>
@@ -36,6 +37,7 @@ async function updateWitnesses() {
         </div>`;
     }
     document.getElementById('witnesses').innerHTML = html;
+    document.getElementById('deviceInfo').innerHTML = 'This device: ' + (localStorage.getItem('deviceId') || 'unnamed');
 }
 setInterval(updateWitnesses, 5000);
 updateWitnesses(); // Call immediately
