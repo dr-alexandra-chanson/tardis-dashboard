@@ -15,8 +15,11 @@ function chirp() {
         deviceId = prompt('Name this witness node:') || 'Unknown';
         localStorage.setItem('deviceId', deviceId);
     }
-    alert(`Chirp from ${deviceId} registered!`);
-    updateWitnesses(); // Refresh to show new device name
+    const timestamp = new Date().toISOString();
+    const command = `echo '{"${deviceId}": "${timestamp}"}' | jq -s '.[0] * .[1]' <(curl -s https://api.github.com/gists/b1f561774c2d272175a35fb478ccb1bd | jq -r '.files."chirps.json".content' | jq .) - > chirps.json && gh gist edit b1f561774c2d272175a35fb478ccb1bd chirps.json`;
+    
+    prompt('Run this in WSL to register chirp:', command);
+    updateWitnesses();
 }
 </script>
 
