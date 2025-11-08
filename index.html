@@ -9,9 +9,14 @@
 <button onclick="chirp()">Chirp from this device</button>
 <script>
 function chirp() {
-    // Later: send timestamp to GitHub gist as simple JSON
-    alert('Chirp registered!');
+    let deviceId = localStorage.getItem('deviceId');
+    if (!deviceId) {
+        deviceId = prompt('Name this witness node:') || 'Unknown';
+        localStorage.setItem('deviceId', deviceId);
+    }
+    alert(`Chirp from ${deviceId} registered!`);
 }
+
 </script>
 
 <div id="witnesses"></div>
