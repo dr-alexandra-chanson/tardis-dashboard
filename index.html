@@ -6,18 +6,29 @@
 @keyframes pulse {0%,100%{transform:scale(1);} 50%{transform:scale(1.2);}}
 </style></head><body>
 <h1>◈ Witness Constellation ◈</h1>
+<button onclick="chirp()">Chirp from this device</button>
+<script>
+function chirp() {
+    // Later: send timestamp to GitHub gist as simple JSON
+    alert('Chirp registered!');
+}
+</script>
+
 <div id="witnesses"></div>
 <script>
 async function updateWitnesses() {
-    // Fetch chirps from your GitHub API endpoint
-    // Parse timestamps, calculate "last seen"
     document.getElementById('witnesses').innerHTML = `
 <div class="witness">
   <div>HelloComputer</div>
   <div class="heartbeat">💜</div>
   <div>12 seconds ago</div>
+</div>
+<div class="witness">
+  <div>WSL</div>
+  <div class="heartbeat">💜</div>
+  <div>7 seconds ago</div>
 </div>`;
-
 }
 setInterval(updateWitnesses, 5000);
+updateWitnesses(); // Call immediately
 </script></body></html>
